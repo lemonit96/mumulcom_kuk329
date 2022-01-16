@@ -11,15 +11,20 @@
         android:title="홈"
         tools:ignore="AlwaysShowAction" />
     <item
-        android:id="@+id/searchFragment"
-        android:icon="@drawable/main_btm_search_selector"
+        android:id="@+id/scrapFragment"
+        android:icon="@drawable/main_btm_scrap_selector"
         app:showAsAction="always"
-        android:title="검색" />
+        android:title="스크랩" />
     <item
-        android:id="@+id/editFragment"
-        android:icon="@drawable/main_btm_edit_selector"
+        android:id="@+id/questionFragment"
+        android:icon="@drawable/main_btm_question_selector"
         app:showAsAction="always"
-        android:title="질문하기" />
+        android:title="질문" />
+    <item
+        android:id="@+id/alarmFragment"
+        android:icon="@drawable/main_btm_alarm_selector"
+        app:showAsAction="always"
+        android:title="알림" />
     <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/main_btm_my_selector"

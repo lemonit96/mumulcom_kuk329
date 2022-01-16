@@ -13,6 +13,7 @@
         app:layout_constraintBottom_toTopOf="@id/main_bnv"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--app:labelVisibilityMode="labeled"-->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/main_bnv"
         android:layout_width="match_parent"
@@ -20,7 +21,6 @@
         app:itemIconSize="25dp"
         app:itemIconTint="@drawable/main_btm_color_selector"
         app:itemTextColor="@drawable/main_btm_color_selector"
-        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
