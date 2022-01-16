@@ -5,18 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.mumulcom.databinding.FragmentSearchBinding
+import com.example.mumulcom.databinding.FragmentQuestionBinding
 
 
-class SearchFragment : Fragment() {
-    lateinit var binding: FragmentSearchBinding
+class QuestionFragment : Fragment() {
+
+    lateinit var binding: FragmentQuestionBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSearchBinding.inflate(inflater, container, false)
+        binding = FragmentQuestionBinding.inflate(inflater, container, false)
         return binding.root
     }
 

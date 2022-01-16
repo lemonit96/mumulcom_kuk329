@@ -22,16 +22,23 @@ class MainActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
 
-                R.id.searchFragment -> {
+                R.id.scrapFragment -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, SearchFragment())
+                        .replace(R.id.main_frm, ScrapFragment())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }
 
-                R.id.editFragment -> {
+                R.id.questionFragment -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, EditFragment())
+                        .replace(R.id.main_frm, QuestionFragment())
+                        .commitAllowingStateLoss()
+                    return@setOnItemSelectedListener true
+                }
+
+                R.id.alarmFragment -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_frm, AlarmFragment())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }
