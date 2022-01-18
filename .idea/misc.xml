@@ -4,12 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidProject/UMC/Mumulcom_Android/app/src/main/res/drawable/ic_smile.xml" value="0.23854166666666668" />
+        <entry key="..\:/AndroidProject/UMC/Mumulcom_Android/app/src/main/res/drawable/indicator_background.xml" value="0.22239583333333332" />
         <entry key="..\:/AndroidProject/UMC/Mumulcom_Android/app/src/main/res/drawable/main_btm_alarm_selector.xml" value="0.23854166666666668" />
         <entry key="..\:/AndroidProject/UMC/Mumulcom_Android/app/src/main/res/drawable/question_list_background.xml" value="0.23854166666666668" />
         <entry key="..\:/AndroidProject/UMC/Mumulcom_Android/app/src/main/res/layout/activity_main.xml" value="0.21822916666666667" />
         <entry key="..\:/AndroidProject/UMC/Mumulcom_Android/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/AndroidProject/UMC/Mumulcom_Android/app/src/main/res/layout/fragment_question.xml" value="0.19814814814814816" />
-        <entry key="..\:/AndroidProject/UMC/Mumulcom_Android/app/src/main/res/layout/question_list_item.xml" value="0.19814814814814816" />
+        <entry key="..\:/AndroidProject/UMC/Mumulcom_Android/app/src/main/res/layout/question_list_item.xml" value="0.264" />
         <entry key="..\:/Users/ji_11/AndroidStudioProjects/Mumulcom/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/ji_11/AndroidStudioProjects/Mumulcom/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/ji_11/AndroidStudioProjects/Mumulcom/app/src/main/res/drawable/main_btm_alarm_selector.xml" value="0.26979166666666665" />
