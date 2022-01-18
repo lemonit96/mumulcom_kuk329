@@ -1,17 +1,289 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:scrollbars="none"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="홈 프래그먼트"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="#FFFBF6"
+        android:paddingLeft="15dp"
+        android:paddingTop="15dp"
+        android:paddingRight="15dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!--        <ImageView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:id="@+id/logoIv"/>-->
+        <TextView
+            android:id="@+id/logoIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="무물_컴"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/searchIv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="내가 한 최근 질문"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logoIv" />
+
+        <TextView
+            android:id="@+id/watchAllTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="전체 보기"
+            android:textColor="@color/gray_text_color"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchIv" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/boardRL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/watchAllTv"
+            android:background="@drawable/question_list_background"
+            android:padding="15dp">
+
+            <ImageView
+                android:id="@+id/appIconIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/ic_smile"/>
+            <TextView
+                android:id="@+id/appTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/appIconIv"
+                android:layout_marginStart="8dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:text="앱"/>
+
+            <ImageView
+                android:id="@+id/appNextIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/appTv"
+                android:src="@drawable/ic_next"
+                app:tint="@color/black"/>
+            <TextView
+                android:id="@+id/appAllTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/appNextIv"
+                android:textColor="@color/gray_text_color"
+                android:text="전체 게시판"
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/androidTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/appTv"
+                app:layout_constraintStart_toStartOf="@+id/appTv"
+                android:layout_marginTop="15dp"
+                android:text="안드로이드"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/androidTv"
+                app:layout_constraintTop_toTopOf="@+id/androidTv"
+                app:layout_constraintBottom_toBottomOf="@+id/androidTv"
+                android:layout_marginStart="15dp"
+                android:text="IOS"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18sp"/>
+
+            <!--- 웹      -->
+
+            <ImageView
+                android:id="@+id/webIconIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/androidTv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="23dp"
+                android:src="@drawable/ic_smile"/>
+            <TextView
+                android:id="@+id/webTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/webIconIv"
+                app:layout_constraintStart_toEndOf="@+id/webIconIv"
+                android:layout_marginStart="8dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:text="웹"/>
+
+            <ImageView
+                android:id="@+id/webNextIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/webIconIv"
+                app:layout_constraintStart_toEndOf="@+id/webTv"
+                android:src="@drawable/ic_next"
+                app:tint="@color/black"/>
+            <TextView
+                android:id="@+id/webAllTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/webIconIv"
+                app:layout_constraintStart_toEndOf="@+id/appNextIv"
+                android:textColor="@color/gray_text_color"
+                android:text="전체 게시판"
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/htmlTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/webTv"
+                app:layout_constraintStart_toStartOf="@+id/webTv"
+                android:layout_marginTop="15dp"
+                android:text="HTML"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/cssTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/htmlTv"
+                app:layout_constraintTop_toTopOf="@+id/htmlTv"
+                app:layout_constraintBottom_toBottomOf="@+id/htmlTv"
+                android:layout_marginStart="15dp"
+                android:text="CSS"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/jsReactTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/cssTv"
+                app:layout_constraintTop_toTopOf="@+id/cssTv"
+                app:layout_constraintBottom_toBottomOf="@+id/cssTv"
+                android:layout_marginStart="15dp"
+                android:text="JS,REACT"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18sp"/>
+
+
+            <!--  서버      -->
+            <ImageView
+                android:id="@+id/serverIconIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/htmlTv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="23dp"
+                android:src="@drawable/ic_smile"/>
+            <TextView
+                android:id="@+id/serverTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/serverIconIv"
+                app:layout_constraintStart_toEndOf="@+id/serverIconIv"
+                android:layout_marginStart="8dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:text="서버"/>
+
+            <ImageView
+                android:id="@+id/serverNextIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/serverIconIv"
+                app:layout_constraintStart_toEndOf="@+id/serverTv"
+                android:src="@drawable/ic_next"
+                app:tint="@color/black"/>
+            <TextView
+                android:id="@+id/serverAllTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/serverIconIv"
+                app:layout_constraintStart_toEndOf="@+id/serverNextIv"
+                android:textColor="@color/gray_text_color"
+                android:text="전체 게시판"
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/nodeTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/serverTv"
+                app:layout_constraintStart_toStartOf="@+id/serverTv"
+                android:layout_marginTop="15dp"
+                android:text="NODE.JS"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/springTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/nodeTv"
+                app:layout_constraintTop_toTopOf="@+id/nodeTv"
+                app:layout_constraintBottom_toBottomOf="@+id/nodeTv"
+                android:layout_marginStart="15dp"
+                android:text="SPRING"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/pythonTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/springTv"
+                app:layout_constraintTop_toTopOf="@+id/springTv"
+                app:layout_constraintBottom_toBottomOf="@+id/springTv"
+                android:layout_marginStart="15dp"
+                android:text="PYTHON"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18sp"/>
+
+            <!--  게임/그래픽      -->
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
