@@ -22,7 +22,7 @@ class RecentQuestionAllActivity : AppCompatActivity() {
         }
 
         binding.questionAllRv.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
-        val recentQuestionAdapter = RecentQuestionAdapter(myQuestions)
+        val recentQuestionAdapter = MyQuestionAdapter(myQuestions)
         binding.questionAllRv.adapter = recentQuestionAdapter
 
         binding.backIv.setOnClickListener {

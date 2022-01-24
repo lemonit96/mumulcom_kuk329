@@ -25,11 +25,18 @@ class HomeFragment : Fragment() {
             recentQuestions.add(Question("$i person","2022-01-($i)","I have a question"))
         }
 
-
-//        val recentQuestionAdapter = RecentQuestionAdapter(recentQuestions)
-//        binding.recentQuestionVp.adapter = recentQuestionAdapter
+//        binding.recentQuestionVp.adapter = RecentQuestionAdapter(recentQuestions)
 //        binding.recentQuestionVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 //        binding.homeIndicator.setViewPager(binding.recentQuestionVp)
+
+
+
+
+
+        val recentQuestionAdapter = RecentQuestionAdapter(recentQuestions)
+        binding.recentQuestionVp.adapter = recentQuestionAdapter
+        binding.recentQuestionVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        binding.homeIndicator.setViewPager(binding.recentQuestionVp)
 
 
 
