@@ -17,11 +17,11 @@
         app:layout_constraintTop_toTopOf="parent">
         <ImageView
             android:id="@+id/itemIconIv"
-            android:layout_width="38dp"
-            android:layout_height="38dp"
+            android:layout_width="83.56px"
+            android:layout_height="83.56px"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:src="@drawable/ic_girl"/>
+            android:src="@drawable/ic_profile"/>
         <TextView
             android:id="@+id/itemNameTv"
             android:layout_width="wrap_content"

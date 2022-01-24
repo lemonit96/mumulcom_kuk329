@@ -140,6 +140,7 @@
                 android:textColor="@color/black"
                 android:textSize="41.78px"/>
             <TextView
+                android:id="@+id/iosTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@+id/androidTv"
@@ -214,14 +215,14 @@
                 android:textColor="@color/black"
                 android:textSize="41.78px"/>
             <TextView
-                android:id="@+id/jsReactTv"
+                android:id="@+id/reactTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@+id/cssTv"
                 app:layout_constraintTop_toTopOf="@+id/cssTv"
                 app:layout_constraintBottom_toBottomOf="@+id/cssTv"
                 android:layout_marginStart="52px"
-                android:text="JS,REACT"
+                android:text="REACT"
                 android:textColor="@color/black"
                 android:textSize="41.78px"/>
 
@@ -313,19 +314,23 @@
 
             <ImageView
                 android:id="@+id/languageNextIv"
-                android:layout_width="55.71px"
-                android:layout_height="55.71px"
+                android:layout_width="13.93px"
+                android:layout_height="13.93px"
                 app:layout_constraintTop_toTopOf="@+id/languageTv"
+                app:layout_constraintBottom_toBottomOf="@+id/languageTv"
                 app:layout_constraintStart_toEndOf="@+id/languageTv"
-                android:src="@drawable/ic_next"
+                android:layout_marginStart="34px"
+                android:src="@drawable/ic_dot"
                 app:tint="@color/black"/>
             <TextView
                 android:id="@+id/languageAllTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="@+id/languageNextIv"
+                app:layout_constraintTop_toTopOf="@+id/languageIconIv"
+                app:layout_constraintBottom_toBottomOf="@+id/languageIconIv"
                 app:layout_constraintStart_toEndOf="@+id/languageNextIv"
                 android:textColor="@color/home_gray_text_color"
+                android:layout_marginStart="30px"
                 android:text="전체 게시판"
                 android:textSize="41.78px"/>
             <TextView
@@ -350,7 +355,7 @@
                 android:textColor="@color/black"
                 android:textSize="41.78px"/>
             <TextView
-                android:id="@+id/JSTv"
+                android:id="@+id/jSTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@+id/javaTv"
@@ -364,9 +369,9 @@
                 android:id="@+id/pythonTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toEndOf="@+id/JSTv"
-                app:layout_constraintTop_toTopOf="@+id/JSTv"
-                app:layout_constraintBottom_toBottomOf="@+id/JSTv"
+                app:layout_constraintStart_toEndOf="@+id/jSTv"
+                app:layout_constraintTop_toTopOf="@+id/jSTv"
+                app:layout_constraintBottom_toBottomOf="@+id/jSTv"
                 android:layout_marginStart="52px"
                 android:text="PYTHON"
                 android:textColor="@color/black"
@@ -406,19 +411,23 @@
 
             <ImageView
                 android:id="@+id/etcNextIv"
-                android:layout_width="55.71px"
-                android:layout_height="55.71px"
+                android:layout_width="13.93px"
+                android:layout_height="13.93px"
                 app:layout_constraintTop_toTopOf="@+id/etcTv"
+                app:layout_constraintBottom_toBottomOf="@+id/etcTv"
                 app:layout_constraintStart_toEndOf="@+id/etcTv"
-                android:src="@drawable/ic_next"
+                android:layout_marginStart="34px"
+                android:src="@drawable/ic_dot"
                 app:tint="@color/black"/>
             <TextView
                 android:id="@+id/etcAllTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="@+id/etcNextIv"
+                app:layout_constraintTop_toTopOf="@+id/etcIconIv"
+                app:layout_constraintBottom_toBottomOf="@+id/etcIconIv"
                 app:layout_constraintStart_toEndOf="@+id/etcNextIv"
                 android:textColor="@color/home_gray_text_color"
+                android:layout_marginStart="30px"
                 android:text="전체 게시판"
                 android:textSize="41.78px"/>
 

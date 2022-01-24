@@ -7,6 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".QuestionBoardActivity">
+
+    <!-- 상단 tool bar 역할 -->
     <RelativeLayout
         android:id="@+id/actionbarRl"
         android:paddingTop="50px"
@@ -43,6 +45,8 @@
     </RelativeLayout>
 
 
+
+    <!-- ScrollView -->
 
    <ScrollView
       android:id="@+id/questionBoardSv"
@@ -83,7 +87,7 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:textSize="41.78px"
-               android:textColor="#474A57"
+               android:textColor="#C4C4C4"
                android:text="최신순"/>
            <TextView
                android:id="@+id/sortHotTv"
@@ -122,7 +126,6 @@
                app:layout_constraintEnd_toEndOf="parent"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"/>
-
 
        </androidx.constraintlayout.widget.ConstraintLayout>
    </ScrollView>
