@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BottomNaviTemplate">
         <activity
+            android:name=".QuestionActivity"
+            android:exported="false" />
+        <activity
             android:name=".MyQuestionAllActivity"
             android:exported="false" />
         <activity
             android:name=".QuestionBoardActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RecentQuestionAllActivity"
             android:exported="false" />
         <activity android:name=".MainActivity">
             <intent-filter>

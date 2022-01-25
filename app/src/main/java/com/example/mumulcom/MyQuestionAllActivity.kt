@@ -1,5 +1,6 @@
 package com.example.mumulcom
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,10 +23,25 @@ class MyQuestionAllActivity : AppCompatActivity() {
         binding.questionAllRv.layoutManager = LinearLayoutManager(this,
             LinearLayoutManager.VERTICAL,false)
         val myQuestionAdapter = MyQuestionAdapter(myQuestions)
+
+        myQuestionAdapter.setMyQuestionClickListener(object:MyQuestionAdapter.MyQuestionClickListener{
+            override fun onItemClick(question: Question) {
+                startQuestionActivity(question) // 질문에 대한 정보 전달
+            }
+        })
+
         binding.questionAllRv.adapter = myQuestionAdapter
 
         binding.backIv.setOnClickListener {
             finish()
         }
     }// end of onCreate
+
+
+    private fun startQuestionActivity(question:Question){
+        val intent = Intent(this,QuestionActivity::class.java)
+        intent.putExtra("Question-title",question.questionTitle)
+        intent.putExtra("Question-name",question.userName)
+        startActivity(intent)
+    }
 }// end of class

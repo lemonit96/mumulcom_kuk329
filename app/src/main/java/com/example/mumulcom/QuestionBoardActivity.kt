@@ -13,21 +13,35 @@ class QuestionBoardActivity : AppCompatActivity() {
     private var conceptQuestionCheck : Boolean = false // default 값
     private var recentQuestionCheck : Boolean = true
     private var hotQuestionCheck : Boolean = false
+    private var ifOnlySeeCommentQuestion : Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityQuestionBoardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        initCodingOrConceptQuestionButton() // 코딩 질문 & 개념 질문 버튼 초기화
-        initRecentOrHotQuestionTextButton() // 최신순 & 핫한순 버튼 초기화
-
         val intent = intent
         val title = intent.getStringExtra("category")
         binding.categoryNameTv.text = title
 
+        initView()  // view 초기화
+        initCodingOrConceptQuestionButton() // 코딩 질문 & 개념 질문 버튼 초기화
+        initRecentOrHotQuestionTextButton() // 최신순 & 핫한순 버튼 초기화
+        initCheckCommentButton() // 답변 달린 글만 보기 버튼 초기화
 
 
+
+
+
+
+    }// end of onCreate
+
+
+
+
+    // 함수
+
+    private fun initView(){
         // 상단 뒤로가기 버튼
         binding.backIv.setOnClickListener {
             finish()
@@ -63,10 +77,15 @@ class QuestionBoardActivity : AppCompatActivity() {
             initRecentOrHotQuestionTextButton()
 
         }
-    }// end of onCreate
 
 
+        // 답변 단글만 보기
+        binding.ifAnswerIsCheckIv.setOnClickListener {
+            ifOnlySeeCommentQuestion = !ifOnlySeeCommentQuestion
+            initCheckCommentButton()
 
+        }
+    }
 
     private fun initRecentOrHotQuestionTextButton() {
         if(recentQuestionCheck){
@@ -110,6 +129,18 @@ class QuestionBoardActivity : AppCompatActivity() {
             binding.conceptQuestionIv.isEnabled = true
         }
 
+    }
+
+    private fun initCheckCommentButton(){
+        if(ifOnlySeeCommentQuestion){ // 답변 달린 댓글만 보기
+            binding.ifAnswerIsCheckIv.setImageResource(R.drawable.ic_check_ok)
+            // todo 답변 달린 댓글만 가져오기
+
+
+        }else{
+            binding.ifAnswerIsCheckIv.setImageResource(R.drawable.ic_check_no)
+            // todo 답변 달린 댓글만 가져오기
+        }
     }
 
 
