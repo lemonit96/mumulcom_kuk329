@@ -62,5 +62,16 @@ plugins {
         
         // 추가
         implementation 'me.relex:circleindicator:2.1.6'
-
         implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+        
+        // 카카오톡 로그인 API
+        implementation "com.kakao.sdk:v2-user:2.8.4"
+
+        //Gson
+        implementation 'com.google.code.gson:gson:2.8.7'
+
+        // Retrofit
+        implementation "com.squareup.retrofit2:retrofit:2.9.0"
+        implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+        implementation "com.squareup.retrofit2:adapter-rxjava2:2.9.0"
+    }
