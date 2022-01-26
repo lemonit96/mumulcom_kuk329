@@ -30,6 +30,15 @@ class QuestionBoardActivity : AppCompatActivity() {
         initCheckCommentButton() // 답변 달린 글만 보기 버튼 초기화
 
 
+        // 새로고침
+        binding.refreshLayout.setOnRefreshListener {
+            // todo 서버에서 데이터 reload
+
+
+            binding.refreshLayout.isRefreshing = false
+        }
+
+
 
 
 

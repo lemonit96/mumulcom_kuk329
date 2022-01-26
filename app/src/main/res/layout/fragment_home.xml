@@ -37,6 +37,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/myRecentQuestionTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="95px"
@@ -47,16 +48,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/logoIv" />
 
-        <TextView
-            android:id="@+id/watchRecentQuestionAllTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="전체 보기"
-            android:textColor="@color/home_gray_text_color"
-            android:textSize="41.78px"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchIv" />
+<!--        <TextView-->
+<!--            android:id="@+id/watchRecentQuestionAllTv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:text="전체 보기"-->
+<!--            android:textColor="@color/home_gray_text_color"-->
+<!--            android:textSize="41.78px"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/searchIv" />-->
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/recentQuestionVp"
@@ -65,7 +66,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="52px"
-            app:layout_constraintTop_toBottomOf="@+id/watchRecentQuestionAllTv"/>
+            app:layout_constraintTop_toBottomOf="@+id/myRecentQuestionTv"/>
         <me.relex.circleindicator.CircleIndicator3
             android:id="@+id/home_indicator"
             app:ci_drawable="@drawable/indicator_background"
