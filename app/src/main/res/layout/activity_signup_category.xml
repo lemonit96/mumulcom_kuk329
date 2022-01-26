@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60px"
         android:text="무물컴이 관심 있는 코딩 분야의 질문을 \n추천해줘요!"
-        android:textColor="@color/home_gary_text_color"
+        android:textColor="@color/home_gray_text_color"
         android:textStyle="bold"
         android:textSize="12sp"
         app:layout_constraintTop_toBottomOf="@id/signup_select_category_tv"
