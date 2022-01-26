@@ -2,6 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mumulcom">
 
+<!--    <uses-permission android:name="android.hardware.Camera"-->
+<!--        android:required="true" />-->
+    <!--  카메라 권한  -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <!--  파일 쓰기 권한  -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!--  파일 저장 권한  -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!--  카메라 기능 사용  -->
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,6 +26,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".QuestionCategoryActivity"/>
+        <activity android:name=".CameraPermissionActivity"/>
+        <activity android:name=".CameraPermissionAccessActivity"/>
+        <activity android:name=".CameraShootingActivity"/>
+        <activity android:name=".AfterCheckbuttonActivity"/>
+        <activity android:name=".SelectCategoryTopActivity"/>
+
+        <provider
+            android:authorities="com.example.mumulcom"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
     </application>
 
 </manifest>
