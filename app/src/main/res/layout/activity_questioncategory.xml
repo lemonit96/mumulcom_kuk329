@@ -31,7 +31,7 @@
         android:id="@+id/questioncategoryClickSelectCompletionIb"
         android:layout_width="68.25dp"
         android:layout_height="33.23dp"
-        android:src="@drawable/ic_select_completion"
+        android:src="@drawable/ic_select_complete"
         android:scaleType="fitXY"
         android:background="@color/background"
         app:layout_constraintEnd_toEndOf="@id/questioncategoryOne"

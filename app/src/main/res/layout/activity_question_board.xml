@@ -26,7 +26,7 @@
             android:id="@+id/backIv"
             android:layout_width="28px"
             android:layout_height="56px"
-            android:src="@drawable/ic_back" />
+            android:src="@drawable/ic_back_black" />
 
         <TextView
             android:id="@+id/categoryNameTv"
@@ -74,7 +74,7 @@
                android:id="@+id/conceptQuestionIv"
                android:layout_width="319px"
                android:layout_height="89.32px"
-               android:src="@drawable/concept_question_img"
+               android:src="@drawable/ic_concept_question_img"
                app:layout_constraintBottom_toBottomOf="@+id/codingQuestionIv"
                app:layout_constraintStart_toEndOf="@+id/codingQuestionIv"
                app:layout_constraintTop_toTopOf="@+id/codingQuestionIv"

@@ -54,7 +54,7 @@
         android:id="@+id/camerashootingBackIb"
         android:layout_width="112px"
         android:layout_height="112px"
-        android:src="@drawable/ic_back"
+        android:src="@drawable/ic_back_black"
         android:scaleType="fitXY"
         android:background="#E5E5E5"
         app:layout_constraintBottom_toTopOf="@id/camerashootingFrame1Iv"
