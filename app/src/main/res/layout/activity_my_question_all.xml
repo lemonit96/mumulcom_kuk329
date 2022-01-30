@@ -24,7 +24,7 @@
             android:id="@+id/backIv"
             android:layout_width="28px"
             android:layout_height="56px"
-            android:src="@drawable/ic_back" />
+            android:src="@drawable/ic_back_black" />
 
         <TextView
             android:id="@+id/myQuestionTv"

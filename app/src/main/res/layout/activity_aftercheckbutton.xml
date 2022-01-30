@@ -23,7 +23,7 @@
                     android:id="@+id/aftercheckbuttonBackIv"
                     android:layout_width="8.77dp"
                     android:layout_height="17.54dp"
-                    android:src="@drawable/ic_back2"
+                    android:src="@drawable/ic_back_black"
                     android:scaleType="fitXY"
                     android:background="@color/background"
                     app:layout_constraintStart_toStartOf="parent"

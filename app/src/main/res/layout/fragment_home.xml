@@ -28,13 +28,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!--
         <ImageView
             android:id="@+id/searchIv"
             android:layout_width="71px"
             android:layout_height="71px"
             android:src="@drawable/ic_search"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" /> -->
+
+        <ImageButton
+            android:id="@+id/search_btn"
+            android:layout_width="71px"
+            android:layout_height="71px"
+            android:src="@drawable/ic_search"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/myRecentQuestionTv"
