@@ -1,5 +1,6 @@
 package com.example.mumulcom
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,11 +10,11 @@ import com.example.mumulcom.databinding.ActivityQuestionBoardBinding
 // Frame62
 class QuestionBoardActivity : AppCompatActivity() {
     private lateinit var binding : ActivityQuestionBoardBinding
-    private var codingQuestionCheck : Boolean = true // default 값
-    private var conceptQuestionCheck : Boolean = false // default 값
-    private var recentQuestionCheck : Boolean = true
-    private var hotQuestionCheck : Boolean = false
-    private var ifOnlySeeCommentQuestion : Boolean = false
+    private var codingQuestionCheck : Boolean = true // default 값 (코딩 질문)
+    private var conceptQuestionCheck : Boolean = false // default 값 (개념 질문)
+    private var recentQuestionCheck : Boolean = true // (최신순)
+    private var hotQuestionCheck : Boolean = false // (핫한순)
+    private var ifOnlySeeCommentQuestion : Boolean = false //(답변달린 질문만 보기 체크)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -94,6 +95,10 @@ class QuestionBoardActivity : AppCompatActivity() {
             initCheckCommentButton()
 
         }
+
+        binding.questionFloatingButton.setOnClickListener {
+            startActivity(Intent(this,QuestionCategoryActivity::class.java))
+        }
     }
 
     private fun initRecentOrHotQuestionTextButton() {
@@ -129,12 +134,12 @@ class QuestionBoardActivity : AppCompatActivity() {
         }
 
         if(conceptQuestionCheck){
-            binding.conceptQuestionIv.setImageResource(R.drawable.concept_question_check_img)
+            binding.conceptQuestionIv.setImageResource(R.drawable.ic_concept_question_check_img)
             binding.conceptQuestionIv.isEnabled = false // 이미 선택되었으면 선택 못함.
             // 개념 질문만 보여줌
 
         }else{
-            binding.conceptQuestionIv.setImageResource(R.drawable.concept_question_img)
+            binding.conceptQuestionIv.setImageResource(R.drawable.ic_concept_question_img)
             binding.conceptQuestionIv.isEnabled = true
         }
 

@@ -43,8 +43,8 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "기존 로그인 유지 성공", Toast.LENGTH_SHORT).show()
 
                 // 서버에 저장되어 있는 사용자 정보 받아오기
-                login(user)
-                //getJwt()
+                //login(user)
+                getJwt(this)
 
 
                 // 메인 액티비티로 사용자 정보 전달하기

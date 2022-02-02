@@ -12,9 +12,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.questionBTn.setOnClickListener {
-            startActivity(Intent(this, QuestionCategoryActivity::class.java))
-        }
+//        binding.questionBTn.setOnClickListener {
+//            startActivity(Intent(this, QuestionCategoryActivity::class.java))
+//        }
 
         initNavigation()
 

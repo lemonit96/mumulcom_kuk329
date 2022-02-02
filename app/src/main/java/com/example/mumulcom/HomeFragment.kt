@@ -44,9 +44,9 @@ class HomeFragment : Fragment() {
 
 
         // 나의 최근 질문 전체보기
-        binding.watchRecentQuestionAllTv.setOnClickListener {
-            startActivity(Intent(context,MyQuestionAllActivity::class.java))
-        }
+//        binding.watchRecentQuestionAllTv.setOnClickListener {
+//            startActivity(Intent(context,MyQuestionAllActivity::class.java))
+//        }
 
         initCategoryButton()
 
