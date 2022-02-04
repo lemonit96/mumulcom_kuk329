@@ -1,7 +1,9 @@
 package com.example.mumulcom
 
 import android.content.Intent
+import android.opengl.Visibility
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,9 +12,10 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.mumulcom.databinding.FragmentHomeBinding
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(),RecentQuestionView {
     lateinit var binding: FragmentHomeBinding
     private var recentQuestions = ArrayList<Question>()
+    private lateinit var recentQuestionAdapter: RecentQuestionAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,24 +24,13 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        for(i in 0..3){
-            recentQuestions.add(Question("$i person","2022-01-($i)","I have a question"))
-        }
+//        for(i in 0..3){
+//            recentQuestions.add(Question("$i person","2022-01-($i)","I have a question"))
+//        }
 
 //        binding.recentQuestionVp.adapter = RecentQuestionAdapter(recentQuestions)
 //        binding.recentQuestionVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 //        binding.homeIndicator.setViewPager(binding.recentQuestionVp)
-
-
-
-
-
-        val recentQuestionAdapter = RecentQuestionAdapter(recentQuestions)
-        binding.recentQuestionVp.adapter = recentQuestionAdapter
-        binding.recentQuestionVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        binding.homeIndicator.setViewPager(binding.recentQuestionVp)
-
-
 
 
 
@@ -51,6 +43,15 @@ class HomeFragment : Fragment() {
         initCategoryButton()
 
         return binding.root
+    }// en of onCreate()
+
+    override fun onStart() {
+        super.onStart()
+
+        getQuestions()
+        initViewPager()
+
+
     }
 
     private fun initCategoryButton() {
@@ -174,8 +175,53 @@ class HomeFragment : Fragment() {
         }
 
 
+    }// end of initCategoryButton
+
+    private fun initViewPager(){
+
+        recentQuestionAdapter = RecentQuestionAdapter(requireContext())
+        binding.recentQuestionVp.adapter = recentQuestionAdapter
+        binding.recentQuestionVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
 
+    }
+    private fun getQuestions(){
+        val questionService = QuestionService()
+        questionService.setRecentQuestionView(this)
+
+        // TODO sharedPreference 에 저장된 userIdx 값으로 바꿔서 넣기
+        questionService.getQuestions(1) // 현재 로그인한 사용자 정보 넣어줌.
+    }
+
+
+
+    override fun onGetQuestionsLoading() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onGetQuestionsSuccess(result: ArrayList<Question>?) {
+        if (result != null) {
+            recentQuestionAdapter.addQuestions(result)
+            binding.noMyQuestionTv.visibility = View.GONE
+            binding.recentQuestionVp.visibility = View.VISIBLE
+            binding.homeIndicator.visibility = View.VISIBLE
+
+
+        }else{ // 내가 한 질문이 없을 경우
+            // viewPager 지우고 텍스트 대체
+            binding.recentQuestionVp.visibility = View.GONE
+            binding.homeIndicator.visibility = View.GONE
+            binding.noMyQuestionTv.visibility = View.VISIBLE
+        }
+
+        // indicator 연결
+        binding.homeIndicator.setViewPager(binding.recentQuestionVp)
+    }
+
+    override fun onGetQuestionsFailure(code: Int, message: String) {
+        when(code){
+            400-> Log.d("HomeFragment/API",message)
+        }
     }
 
 
