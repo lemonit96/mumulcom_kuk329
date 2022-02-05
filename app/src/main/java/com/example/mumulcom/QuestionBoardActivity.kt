@@ -20,7 +20,7 @@ class QuestionBoardActivity : AppCompatActivity(),CategoryQuestionView {
     private var isReplied : Boolean = false //(답변달린 질문만 보기 체크)
 
     private lateinit var title : String
-    private var bigCategoryIdx : Int? =null
+    private var bigCategoryIdx : Int =0
     private var smallCategoryIdx : Int? = null
 
     private lateinit var questionAdapter : QuestionAdapter

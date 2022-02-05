@@ -1,5 +1,6 @@
 package com.example.mumulcom
 
+import android.util.Log
 import retrofit2.Call
 import retrofit2.Response
 
@@ -14,19 +15,20 @@ class QuestionService {
         this.recentQuestionView = recentQuestionView
     }
 
-    fun getQuestions(userIdx:Long) {
+    fun getQuestions(userIdx:Long, X_ACCESS_TOKEN:String="eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjozLCJpYXQiOjE2NDQwNTg4MTIsImV4cCI6MTY0NTUzMDA0MX0.kQFQtOC6fYVDFVFXhrNE_Jz3EtJwsSrES89_syTCli4") {
         val questionService = getRetrofit().create(QuestionRetrofitInterface::class.java)
         // val callResponse: Call<QuestionResponse> = questionService.getQuestions(userIdx)
 
-     //   recentQuestionView.onGetQuestionsLoading()
+        recentQuestionView.onGetQuestionsLoading()
 
-        questionService.getQuestions(userIdx).enqueue(object : retrofit2.Callback<QuestionResponse>{
+        questionService.getQuestions(userIdx,X_ACCESS_TOKEN ).enqueue(object : retrofit2.Callback<QuestionResponse>{
             override fun onResponse(call: Call<QuestionResponse>, response: Response<QuestionResponse>) {
 
                 val resp = response.body()!!
 
                 when(resp.code){
-                    1000-> recentQuestionView.onGetQuestionsSuccess(resp.result)
+                    1000->{ recentQuestionView.onGetQuestionsSuccess(resp.result)
+                    Log.d("HomeFragment/API","성공")}
 //                    1000-> recentQuestionView.onGetQuestionsSuccess(null)
                     else -> recentQuestionView.onGetQuestionsFailure(resp.code,resp.message)
 

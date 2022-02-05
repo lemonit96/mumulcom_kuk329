@@ -46,8 +46,8 @@ class MyQuestionAdapter(private val questionList:ArrayList<Question>):RecyclerVi
     inner class ViewHolder(val binding:QuestionListItemBinding):RecyclerView.ViewHolder(binding.root){
 
         fun bind(question:Question){
-            binding.itemNameTv.text = question.name
-            binding.itemDateTv.text = question.created
+            binding.itemNameTv.text = question.nickname
+            binding.itemDateTv.text = question.createdAt
             binding.itemTitleTv.text = question.title
 
         }

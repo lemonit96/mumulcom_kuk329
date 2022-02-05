@@ -53,7 +53,7 @@ class HomeFragment : Fragment(),RecentQuestionView {
         questionService.setRecentQuestionView(this)
 
         // TODO sharedPreference 에 저장된 userIdx 값으로 바꿔서 넣기
-        questionService.getQuestions(1) // 현재 로그인한 사용자 정보 넣어줌.
+        questionService.getQuestions(3) // 현재 로그인한 사용자 정보 넣어줌.
     }
 
 
@@ -66,7 +66,7 @@ class HomeFragment : Fragment(),RecentQuestionView {
 
 
     override fun onGetQuestionsLoading() {
-        TODO("Not yet implemented")
+        Log.d("HomeFragment/API","로딩중...")
     }
 
     override fun onGetQuestionsSuccess(result: ArrayList<Question>?) {

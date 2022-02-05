@@ -49,8 +49,8 @@ class QuestionAdapter():RecyclerView.Adapter<QuestionAdapter.ViewHolder>() {
         fun bind(question:Question){
 
             binding.itemTitleTv.text = question.title // 질문 제목
-            binding.itemNameTv.text = question.name // 작성자 닉네임
-            binding.itemDateTv.text = question.created // 질문한 날짜
+            binding.itemNameTv.text = question.nickname // 작성자 닉네임
+            binding.itemDateTv.text = question.createdAt // 질문한 날짜
             binding.itemCommentTv.text = question.replyCount.toString() // 댓글 수
             binding.itemLikeTv.text = question.likeCount.toString() // 좋아요 갯수
 
