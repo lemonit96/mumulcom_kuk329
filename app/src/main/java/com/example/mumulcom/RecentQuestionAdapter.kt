@@ -5,9 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mumulcom.databinding.ActivityMyQuestionAllBinding
-import com.example.mumulcom.databinding.QuestionListItemBinding
-import com.example.mumulcom.databinding.RecentQuestionLsitItemBinding
+import com.example.mumulcom.databinding.RecentQuestionListItemBinding
 
 class RecentQuestionAdapter(val context: Context):RecyclerView.Adapter<RecentQuestionAdapter.QuestionViewHolder>() {
 
@@ -22,7 +20,7 @@ class RecentQuestionAdapter(val context: Context):RecyclerView.Adapter<RecentQue
         parent: ViewGroup,
         viewType: Int
     ): RecentQuestionAdapter.QuestionViewHolder {
-        val binding:RecentQuestionLsitItemBinding = RecentQuestionLsitItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val binding:RecentQuestionListItemBinding = RecentQuestionListItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return QuestionViewHolder(binding)
     }
 
@@ -44,7 +42,7 @@ class RecentQuestionAdapter(val context: Context):RecyclerView.Adapter<RecentQue
     }
 
 
-    inner class QuestionViewHolder(val binding: RecentQuestionLsitItemBinding):RecyclerView.ViewHolder(binding.root){
+    inner class QuestionViewHolder(val binding: RecentQuestionListItemBinding):RecyclerView.ViewHolder(binding.root){
 
         fun bind(question:Question){
             if(questions.size==0){

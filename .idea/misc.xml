@@ -36,11 +36,13 @@
         <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/drawable/main_btm_home_selector.xml" value="0.20208333333333334" />
         <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/drawable/main_btm_my_selector.xml" value="0.20208333333333334" />
         <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/layout/activity_my_question_all.xml" value="0.72" />
         <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/layout/activity_question.xml" value="0.221875" />
-        <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/layout/activity_question_board.xml" value="1.2" />
+        <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/layout/activity_question_board.xml" value="0.1" />
         <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/layout/fragment_question.xml" value="0.221875" />
-        <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/layout/question_list_item.xml" value="0.17916666666666667" />
+        <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/layout/question_list_item.xml" value="0.4" />
+        <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/layout/recent_question_lsit_item.xml" value="0.3770833333333333" />
         <entry key="..\:/Users/ji_11/AndroidStudioProjects/Mumulcom/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/ji_11/AndroidStudioProjects/Mumulcom/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/ji_11/AndroidStudioProjects/Mumulcom/app/src/main/res/drawable/main_btm_alarm_selector.xml" value="0.26979166666666665" />

@@ -4,6 +4,7 @@ import retrofit2.Call
 import retrofit2.Response
 
 
+
 // 이 클래스를 사용해서 질문 리스트를 받아올수 있음.
 class QuestionService {
     private lateinit var recentQuestionView: RecentQuestionView

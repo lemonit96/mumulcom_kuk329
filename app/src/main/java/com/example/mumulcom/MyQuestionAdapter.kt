@@ -5,6 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mumulcom.databinding.QuestionListItemBinding
 
+
+
+// XXXXXXX 안쓰는 어댑터
+
+
 class MyQuestionAdapter(private val questionList:ArrayList<Question>):RecyclerView.Adapter<MyQuestionAdapter.ViewHolder>() {
 
     // 클릭 인터페이스 정의
@@ -21,16 +26,6 @@ class MyQuestionAdapter(private val questionList:ArrayList<Question>):RecyclerVi
     }
 
 
-    inner class ViewHolder(val binding:QuestionListItemBinding):RecyclerView.ViewHolder(binding.root){
-
-        fun bind(question:Question){
-            binding.itemNameTv.text = question.name
-            binding.itemDateTv.text = question.created
-            binding.itemTitleTv.text = question.title
-
-        }
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding:QuestionListItemBinding = QuestionListItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ViewHolder(binding)
@@ -46,5 +41,16 @@ class MyQuestionAdapter(private val questionList:ArrayList<Question>):RecyclerVi
     }
 
     override fun getItemCount(): Int =questionList.size
+
+
+    inner class ViewHolder(val binding:QuestionListItemBinding):RecyclerView.ViewHolder(binding.root){
+
+        fun bind(question:Question){
+            binding.itemNameTv.text = question.name
+            binding.itemDateTv.text = question.created
+            binding.itemTitleTv.text = question.title
+
+        }
+    }
 
 }
