@@ -5,6 +5,8 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.mumulcom.databinding.ActivityQuestionBoardBinding
 
 
@@ -12,8 +14,8 @@ class QuestionBoardActivity : AppCompatActivity(),CategoryQuestionView {
     private lateinit var binding : ActivityQuestionBoardBinding
     private var codingQuestionCheck : Boolean = true // default 값 (코딩 질문)
     private var conceptQuestionCheck : Boolean = false // default 값 (개념 질문)
-    private var type : Int = 1  // 질문 타입은 기본이 코딩 질문으로
-    private var sort : Int = 1 // 정렬 기준은 기본이 최신순으로
+    private var type : Int = 1  // 질문 타입은 기본이 코딩 질문으로 (개념질문 : 2)
+    private var sort : Int = 1 // 정렬 기준은 기본이 최신순으로 (핫한순 : 2)
 
     private var recentQuestionCheck : Boolean = true // (최신순)
     private var hotQuestionCheck : Boolean = false // (핫한순)
@@ -33,14 +35,19 @@ class QuestionBoardActivity : AppCompatActivity(),CategoryQuestionView {
         val intent = intent
         title = intent.getStringExtra("category")!!
         binding.categoryNameTv.text = title
-        bigCategoryIdx = intent.getIntExtra("categoryIdx",0)
-        smallCategoryIdx = intent.getIntExtra("smallCategoryIdx",0)
+        bigCategoryIdx = intent.getIntExtra("categoryIdx",0) // 상위 카테고리 값 받음
+        smallCategoryIdx = intent.getIntExtra("smallCategoryIdx",0) // 하위 카테고리 값 받음
+//        Log.d("QuestionBoard:bigCategory",bigCategoryIdx.toString())
+//        Log.d("QuestionBoard:smallCategoryIdx",smallCategoryIdx.toString())
 
 
         initView()  // view 초기화
         initCodingOrConceptQuestionButton() // 코딩 질문 & 개념 질문 버튼 초기화
         initRecentOrHotQuestionTextButton() // 최신순 & 핫한순 버튼 초기화
         initCheckCommentButton() // 답변 달린 글만 보기 버튼 초기화
+
+        getCategoryQuestions()
+        initRecyclerView()
 
 
 
@@ -58,16 +65,31 @@ class QuestionBoardActivity : AppCompatActivity(),CategoryQuestionView {
     override fun onStart() {
         super.onStart()
 
-        getCategoryQuestions()
-        initRecyclerView()
     }
 
     private fun initRecyclerView(){
         // recyclerView <-> adapter 연결
-        questionAdapter = QuestionAdapter()
+        questionAdapter = QuestionAdapter(this)
+        questionAdapter.setQuestionClickListener(object: QuestionAdapter.QuestionClickListener{
+            override fun onItemClick(question: Question) {
+                startQuestionDetailActivity(question)// 질문 상세 보기 페이지로 이동
+            }
+
+        })
         binding.questionBoardRv.adapter = questionAdapter
+        binding.questionBoardRv.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
 
     }
+    private fun startQuestionDetailActivity(question: Question){
+        val intent = Intent(this,QuestionDetailActivity::class.java)
+        intent.putExtra("bigCategoryName",question.bigCategoryName) // 상위 카테고리명 넘김
+        intent.putExtra("questionIdx",question.questionIdx) // 질문 고유 번호 넘김
+        startActivity(intent)
+
+
+    }
+
+
 
     private fun getCategoryQuestions(){
         val categoryQuestionService = CategoryQuestionService()
@@ -79,7 +101,7 @@ class QuestionBoardActivity : AppCompatActivity(),CategoryQuestionView {
 
     // ----------- CategoryQuestionView implement -----------------
     override fun onGetQuestionsLoading() {
-        TODO("Not yet implemented")
+        Log.d("QuestionBoardActivity/API","로딩중...")
     }
 
     override fun onGetQuestionsSuccess(result: ArrayList<Question>?) {
@@ -98,7 +120,6 @@ class QuestionBoardActivity : AppCompatActivity(),CategoryQuestionView {
 
 
 
-
     //-------------------------- 함수 정의 --------------------------------
 
     private fun initView(){
@@ -112,6 +133,10 @@ class QuestionBoardActivity : AppCompatActivity(),CategoryQuestionView {
             codingQuestionCheck = true
             conceptQuestionCheck = false
             initCodingOrConceptQuestionButton()
+            type=1
+            //  api 다시 호출
+            getCategoryQuestions()
+            initRecyclerView()
         }
 
 
@@ -120,6 +145,11 @@ class QuestionBoardActivity : AppCompatActivity(),CategoryQuestionView {
             conceptQuestionCheck= true
             codingQuestionCheck = false
             initCodingOrConceptQuestionButton()
+            type=2
+            // api 다시 호출
+            getCategoryQuestions()
+            initRecyclerView()
+
         }
 
         // 최신순
@@ -127,6 +157,10 @@ class QuestionBoardActivity : AppCompatActivity(),CategoryQuestionView {
             recentQuestionCheck = true
             hotQuestionCheck = false
             initRecentOrHotQuestionTextButton()
+            sort = 1
+            // api 다시 호출
+            getCategoryQuestions()
+            initRecyclerView()
 
         }
 
@@ -135,6 +169,10 @@ class QuestionBoardActivity : AppCompatActivity(),CategoryQuestionView {
             hotQuestionCheck = true
             recentQuestionCheck = false
             initRecentOrHotQuestionTextButton()
+            sort=2
+            //  api 다시 호출
+            getCategoryQuestions()
+            initRecyclerView()
 
         }
 
@@ -143,6 +181,9 @@ class QuestionBoardActivity : AppCompatActivity(),CategoryQuestionView {
         binding.ifAnswerIsCheckIv.setOnClickListener {
             isReplied = !isReplied
             initCheckCommentButton()
+            getCategoryQuestions()
+            initRecyclerView()
+
 
         }
 

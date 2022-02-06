@@ -7,7 +7,7 @@ import com.example.mumulcom.databinding.QuestionListItemBinding
 
 
 
-// XXXXXXX 안쓰는 어댑터
+// XXXXXXX xxxxxxxxxxxxxxxxxxxxxxxxxxx 삭제할 파일 xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
 class MyQuestionAdapter(private val questionList:ArrayList<Question>):RecyclerView.Adapter<MyQuestionAdapter.ViewHolder>() {

@@ -1,11 +1,14 @@
 package com.example.mumulcom
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.mumulcom.databinding.QuestionListItemBinding
 
-class QuestionAdapter():RecyclerView.Adapter<QuestionAdapter.ViewHolder>() {
+class QuestionAdapter(val context: Context):RecyclerView.Adapter<QuestionAdapter.ViewHolder>() {
 
     private val questionList = ArrayList<Question>()
 
@@ -40,20 +43,32 @@ class QuestionAdapter():RecyclerView.Adapter<QuestionAdapter.ViewHolder>() {
        return questionList.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun addQuestions(questions:ArrayList<Question>){
         this.questionList.clear()
         this.questionList.addAll(questions)
+
+        notifyDataSetChanged()
     }
 
     inner class ViewHolder(val binding:QuestionListItemBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(question:Question){
 
+            Glide.with(context).load(question.profileImgUrl).into(binding.itemIconIv)  // 프로필 이미지
+
             binding.itemTitleTv.text = question.title // 질문 제목
             binding.itemNameTv.text = question.nickname // 작성자 닉네임
             binding.itemDateTv.text = question.createdAt // 질문한 날짜
+
             binding.itemCommentTv.text = question.replyCount.toString() // 댓글 수
             binding.itemLikeTv.text = question.likeCount.toString() // 좋아요 갯수
 
+
+            binding.itemBigCategoryTv.text = "#"+question.bigCategoryName
+
+            if(question.smallCategoryName!=null){
+                binding.itemSmallCategoryTv.text = "#"+question.smallCategoryName
+            }
         }
     }
 }

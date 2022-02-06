@@ -1,5 +1,6 @@
 package com.example.mumulcom
 
+import android.util.Log
 import retrofit2.Call
 import retrofit2.Response
 
@@ -15,6 +16,8 @@ class CategoryQuestionService {
     fun getCategoryQuestions(type:Int=1,sort:Int=1,bigCategoryIdx:Int,smallCategoryIdx:Int?,isReplied:Boolean=false,lastQuestionIdx:Int,perPage:Int){
         val categoryQuestionService = getRetrofit().create(QuestionRetrofitInterface::class.java)
 
+        categoryQuestionView.onGetQuestionsLoading()
+
         categoryQuestionService.getCategoryQuestions(type,sort,bigCategoryIdx ,smallCategoryIdx ,isReplied ,lastQuestionIdx ,perPage )
             .enqueue(object :retrofit2.Callback<CategoryQuestionResponse>{
                 override fun onResponse(call: Call<CategoryQuestionResponse>, response: Response<CategoryQuestionResponse>) {
@@ -22,7 +25,10 @@ class CategoryQuestionService {
                     val resp = response.body()!!
 
                     when(resp.code){
-                        1000-> categoryQuestionView.onGetQuestionsSuccess(resp.result)
+                        1000-> {categoryQuestionView.onGetQuestionsSuccess(resp.result)
+                            Log.d("CategoryQuestionService/API","성공")
+
+                        }
                         else-> categoryQuestionView.onGetQuestionsFailure(resp.code,resp.message)
                     }
 

@@ -10,12 +10,19 @@ import com.example.mumulcom.databinding.RecentQuestionListItemBinding
 
 class RecentQuestionAdapter(val context: Context):RecyclerView.Adapter<RecentQuestionAdapter.QuestionViewHolder>() {
 
-    private val questions = ArrayList<Question>()
+    private val questionList = ArrayList<Question>()
 
     // 외부 작업을 위한 클릭 인터페이스 정의
-    interface MyItemClickListener {
-
+    interface QuestionClickListener {
+        fun onItemClick(question: Question)
     }
+    // 리스너 객체를 전달받는 함수랑 리스너 객체를 저장할 변수
+    private lateinit var questionClickListener : QuestionClickListener
+
+    fun setQuestionClickListener(questionClickListener:QuestionClickListener){
+        this.questionClickListener = questionClickListener
+    }
+
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -26,18 +33,28 @@ class RecentQuestionAdapter(val context: Context):RecyclerView.Adapter<RecentQue
     }
 
     override fun onBindViewHolder(holder: RecentQuestionAdapter.QuestionViewHolder, position: Int) {
-        holder.bind(questions[position])
+        holder.bind(questionList[position])
+        // recyclerview 의 각 아이템을 클릭할때
+        holder.itemView.setOnClickListener {
+            questionClickListener.onItemClick(questionList[position])
+        }
+        holder.binding.itemLikeIv.setOnClickListener {
+            // TODO 좋아요 이미지를 눌렀을때 -> 하트 색 바뀌고 좋아요 1증가 , 서버에 정보 전달.
+        }
     }
 
     override fun getItemCount(): Int {
-        return questions.size
+        return questionList.size
     }
+
+
+
 
 
     @SuppressLint("NotifyDataSetChanged")
     fun addQuestions(questions:ArrayList<Question> ){
-        this.questions.clear()
-        this.questions.addAll(questions)
+        this.questionList.clear()
+        this.questionList.addAll(questions)
 
         notifyDataSetChanged()
     }
@@ -47,9 +64,7 @@ class RecentQuestionAdapter(val context: Context):RecyclerView.Adapter<RecentQue
 
 
         fun bind(question:Question){
-            if(questions.size==0){
-                //todo 내 질문이 없을때 처리 ( viewpager x)
-            }
+
             Glide.with(context).load(question.profileImgUrl).into(binding.itemIconIv) // 프로필 이미지
             binding.itemNameTv.text = question.nickname // 닉네임
             binding.itemDateTv.text = question.createdAt // 질문한 날짜

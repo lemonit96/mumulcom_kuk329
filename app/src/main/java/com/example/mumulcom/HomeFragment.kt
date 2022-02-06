@@ -43,11 +43,26 @@ class HomeFragment : Fragment(),RecentQuestionView {
     private fun initViewPager(){
 
         recentQuestionAdapter = RecentQuestionAdapter(requireContext())
+        recentQuestionAdapter.setQuestionClickListener(object : RecentQuestionAdapter.QuestionClickListener{
+            override fun onItemClick(question: Question) {
+                startQuestionDetailActivity(question)// 질문 상세 보기 페이지로 이동
+            }
+
+        })
         binding.recentQuestionVp.adapter = recentQuestionAdapter
         binding.recentQuestionVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
+    }
+
+    private fun startQuestionDetailActivity(question: Question){
+        val intent = Intent(requireContext(),QuestionDetailActivity::class.java)
+        intent.putExtra("bigCategoryName",question.bigCategoryName) // 상위 카테고리명 넘김
+        intent.putExtra("questionIdx",question.questionIdx) // 질문 고유 번호 넘김
+        startActivity(intent)
+
 
     }
+
     private fun getQuestions(){
         val questionService = QuestionService()
         questionService.setRecentQuestionView(this)
