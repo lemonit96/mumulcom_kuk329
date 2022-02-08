@@ -1,62 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout 
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content"
+    android:paddingBottom="50dp"
+    android:background="@color/background">
+
     <LinearLayout
-        android:id="@+id/itemLl"
+        android:id="@+id/itemLl1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:id="@+id/profileIv"
             android:layout_width="83.56px"
             android:layout_height="83.56px"
-            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_profile"
             app:layout_constraintStart_toStartOf="parent"
-            android:src="@drawable/ic_profile"/>
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/nickNameTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/itemIconIv"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
+            android:layout_toRightOf="@+id/itemIconIv"
+            android:text="이휘정"
             android:textColor="@color/home_gray_text_color"
-            android:textStyle="bold"
-            android:text="이휘정" />
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/createdAtTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
             android:layout_toRightOf="@+id/itemIconIv"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="10dp"
+            android:text="12/30,20"
             android:textColor="@color/home_gray_text_color"
-            android:textStyle="bold"
-            android:text="12/30,20"/>
+            android:textStyle="bold" />
+
+        <!-- 질문 작성자만 보임 -->
         <ImageView
-            android:visibility="visible"
             android:id="@+id/selectAnswerIv"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="10dp"
             android:layout_width="47.88dp"
             android:layout_height="21dp"
-            android:src="@drawable/ic_select_answer"/>
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/ic_select_answer"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/selectAnswerTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="15dp"
+            android:text="채택하기"
+            android:textColor="#3F51B5"
+            android:textSize="12sp" />
     </LinearLayout>
     <!-- 답변 내용 -->
-    <TextView
-        android:textColor="@color/black"
-        android:layout_marginTop="10dp"
-        android:textSize="18sp"
-        android:id="@+id/answerCodeTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/itemLl"
+    <LinearLayout
+        android:id="@+id/itemLl2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="https://github.com/collections/open-jouisre \n 위 링크 참조하면 해결되실 거에요! \n 아래 사진도 참고해보세요~"/>
+        app:layout_constraintTop_toBottomOf="@+id/itemLl1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="https://github.com/collections/open-jouisre"
+            android:textColor="@color/home_gray_text_color"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/answerCodeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text=" 위 링크 참조하면 해결되실 거에요! \n 아래 사진도 참고해보세요~"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/itemL13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/itemLl2">
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#000" />
+        <me.relex.circleindicator.CircleIndicator3
+            app:ci_drawable="@drawable/indicator_background"
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemL13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/ic_message"/>
+        <TextView
+            android:layout_marginStart="7dp"
+            android:id="@+id/itemCommentTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"/>
+        <ImageView
+            android:id="@+id/itemLikeIv"
+            android:layout_marginStart="20dp"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/ic_like"/>
+        <TextView
+            android:id="@+id/itemLikeTv"
+            android:layout_marginStart="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"/>
+
+    </LinearLayout>
 
 
 
