@@ -41,7 +41,7 @@
         <activity android:name=".CameraShootingActivity" />
         <activity android:name=".AfterCheckbuttonActivity" />
         <activity android:name=".SelectCategoryTopActivity" />
-        <activity android:name=".login.LoginActivity" />
+        <activity android:name=".LoginActivity"/>
         <activity android:name=".MainActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".SignUpCategoryActivity" /> <!-- 카카오 로그인 -->

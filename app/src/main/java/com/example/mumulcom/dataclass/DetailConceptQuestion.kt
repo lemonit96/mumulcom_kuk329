@@ -11,7 +11,7 @@ class DetailConceptQuestion ( // 12개
     @SerializedName("profileImgUrl") var profileImgUrl: String, // 유저 프로필 이미지 url
     @SerializedName("createdAt") var createdAt: String, // 질문 작성 일자
     @SerializedName("title") var title: String, // 질문 제목
-    @SerializedName("questionImgUrl") var questionImgUrls: ArrayList<String>?, // 질문 이미지들 url (null ~ 여러개 가능)
+    @SerializedName("questionImgUrl") var questionImgUrls: ArrayList<String>, // 질문 이미지들 url (null ~ 여러개 가능)
     @SerializedName("content") var content: String, // 질문 내용
     @SerializedName("bigCategoryName") var bigCategoryName: String, // 상위 카테고리
     @SerializedName("smallCategoryName") var smallCategoryName: String?, // 하위 카테고리, null 가능

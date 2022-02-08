@@ -79,7 +79,7 @@ class QuestionDetailActivity : AppCompatActivity(), DetailCodingQuestionView ,De
             binding.smallCategoryTv.text = "#"+result[0].smallCategoryName // 하위 카테고리
         }
         // todo 이미지 있으면 그 수만큼 viewpager 어댑터에 넘기고 없으면 이미지 보여주는 부분 gone 처리
-        if(result[0].questionImgUrls == null) {
+        if(result[0].questionImgUrls.size==0) {
             binding.pictureLinearLayout.visibility = View.GONE
             Log.d("이미지test", "사진 viewpager gone")
         }
@@ -121,7 +121,7 @@ class QuestionDetailActivity : AppCompatActivity(), DetailCodingQuestionView ,De
 //        Log.d("이미지test",result[0].questionImgUrls!!.isEmpty().toString())
 //        Log.d("이미지test--",result[0].questionImgUrls[0].toString())
 
-        if(result[0].questionImgUrls ==null){
+        if(result[0].questionImgUrls.size == 0){
             binding.pictureLinearLayout.visibility = View.GONE
             Log.d("이미지test","사진 viewpager gone")
         }else{

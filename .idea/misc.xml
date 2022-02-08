@@ -19,6 +19,7 @@
         <entry key="..\:/AndroidProject/UMC/Mumulcom_Android/app/src/main/res/layout/fragment_scrap.xml" value="0.18072916666666666" />
         <entry key="..\:/AndroidProject/UMC/Mumulcom_Android/app/src/main/res/layout/question_list_item.xml" value="0.264" />
         <entry key="..\:/AndroidProject/UMC/Mumulcom_Android/app/src/main/res/layout/recent_question_lsit_item.xml" value="0.264" />
+        <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/drawable/bg_signup_category.xml" value="0.3807291666666667" />
         <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/drawable/bg_signup_group.xml" value="0.12239583333333333" />
         <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/drawable/button_customnext.xml" value="0.35260416666666666" />
         <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/drawable/camerapermissionbackground_custom.xml" value="0.35260416666666666" />
@@ -50,6 +51,8 @@
         <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/layout/activity_question_detail.xml" value="0.4" />
         <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/layout/activity_questioncategory.xml" value="0.27239583333333334" />
         <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/layout/activity_selectcategorytop.xml" value="0.27239583333333334" />
+        <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/layout/activity_signup.xml" value="0.27395833333333336" />
+        <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/layout/activity_signup_category.xml" value="0.27395833333333336" />
         <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/layout/fragment_home.xml" value="0.536" />
         <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/layout/fragment_question.xml" value="0.221875" />
         <entry key="..\:/AndroidProject/UMC_Projects/Mumulcom_Android/app/src/main/res/layout/fragment_scrap.xml" value="0.27239583333333334" />
