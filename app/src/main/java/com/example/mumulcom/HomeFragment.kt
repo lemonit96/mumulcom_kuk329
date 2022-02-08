@@ -1,7 +1,6 @@
 package com.example.mumulcom
 
 import android.content.Intent
-import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,10 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.example.mumulcom.adapter.RecentQuestionAdapter
 import com.example.mumulcom.databinding.FragmentHomeBinding
+import com.example.mumulcom.dataclass.Question
+import com.example.mumulcom.service.QuestionService
+import com.example.mumulcom.view.RecentQuestionView
 
 
-class HomeFragment : Fragment(),RecentQuestionView {
+class HomeFragment : Fragment(), RecentQuestionView {
     lateinit var binding: FragmentHomeBinding
     private lateinit var recentQuestionAdapter: RecentQuestionAdapter
 

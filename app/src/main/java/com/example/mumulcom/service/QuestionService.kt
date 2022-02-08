@@ -1,6 +1,10 @@
-package com.example.mumulcom
+package com.example.mumulcom.service
 
 import android.util.Log
+import com.example.mumulcom.retrofit.QuestionRetrofitInterface
+import com.example.mumulcom.view.RecentQuestionView
+import com.example.mumulcom.getRetrofit
+import com.example.mumulcom.response.QuestionResponse
 import retrofit2.Call
 import retrofit2.Response
 

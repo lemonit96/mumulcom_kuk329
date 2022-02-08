@@ -1,4 +1,4 @@
-package com.example.mumulcom
+package com.example.mumulcom.view
 
 interface SignUpView {
     fun onLoginLoading()

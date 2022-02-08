@@ -1,4 +1,4 @@
-package com.example.mumulcom
+package com.example.mumulcom.login
 
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
@@ -8,7 +8,11 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ImageButton
 import android.widget.Toast
+import com.example.mumulcom.*
 import com.example.mumulcom.databinding.ActivityLoginBinding
+import com.example.mumulcom.dataclass.User
+import com.example.mumulcom.retrofit.AuthRetrofitInterface
+import com.example.mumulcom.view.LoginView
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause.*
 import com.kakao.sdk.user.UserApiClient

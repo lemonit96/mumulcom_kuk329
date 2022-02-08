@@ -1,10 +1,10 @@
-package com.example.mumulcom
+package com.example.mumulcom.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mumulcom.databinding.QuestionListItemBinding
-
+import com.example.mumulcom.dataclass.Question
 
 
 // XXXXXXX xxxxxxxxxxxxxxxxxxxxxxxxxxx 삭제할 파일 xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -45,7 +45,7 @@ class MyQuestionAdapter(private val questionList:ArrayList<Question>):RecyclerVi
 
     inner class ViewHolder(val binding:QuestionListItemBinding):RecyclerView.ViewHolder(binding.root){
 
-        fun bind(question:Question){
+        fun bind(question: Question){
             binding.itemNameTv.text = question.nickname
             binding.itemDateTv.text = question.createdAt
             binding.itemTitleTv.text = question.title

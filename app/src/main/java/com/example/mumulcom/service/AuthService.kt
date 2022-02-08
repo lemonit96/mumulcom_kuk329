@@ -1,7 +1,12 @@
-package com.example.mumulcom
+package com.example.mumulcom.service
 
 import android.annotation.SuppressLint
 import android.util.Log
+import com.example.mumulcom.*
+import com.example.mumulcom.dataclass.User
+import com.example.mumulcom.retrofit.AuthRetrofitInterface
+import com.example.mumulcom.view.LoginView
+import com.example.mumulcom.view.SignUpView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -1,5 +1,6 @@
-package com.example.mumulcom
+package com.example.mumulcom.response
 
+import com.example.mumulcom.dataclass.Question
 import com.google.gson.annotations.SerializedName
 
 data class CategoryQuestionResponse(

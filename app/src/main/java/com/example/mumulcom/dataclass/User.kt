@@ -1,4 +1,4 @@
-package com.example.mumulcom
+package com.example.mumulcom.dataclass
 
 data class User(
     val email: String,  // 변경 불가능 (id값이나 마찬가지)

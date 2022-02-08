@@ -1,4 +1,6 @@
-package com.example.mumulcom
+package com.example.mumulcom.view
+
+import com.example.mumulcom.dataclass.Question
 
 interface CategoryQuestionView {
     fun onGetQuestionsLoading()

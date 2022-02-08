@@ -1,4 +1,4 @@
-package com.example.mumulcom
+package com.example.mumulcom.dataclass
 
 import com.google.gson.annotations.SerializedName
 
@@ -14,7 +14,4 @@ data class Question(
     @SerializedName("likeCount") val likeCount: Int, // 좋아요 한 갯수
     @SerializedName("replyCount") val replyCount: Int, // 답변 갯수
 
-){
-
-}
-
+)

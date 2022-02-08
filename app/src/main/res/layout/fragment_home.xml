@@ -14,11 +14,6 @@
         android:paddingLeft="68px"
         android:paddingRight="68px">
 
-        <!--        <ImageView-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:id="@+id/logoIv"/>-->
-
         <ImageView
             android:id="@+id/logoIv"
             android:layout_width="290.32px"
@@ -27,15 +22,6 @@
             android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <!--
-        <ImageView
-            android:id="@+id/searchIv"
-            android:layout_width="71px"
-            android:layout_height="71px"
-            android:src="@drawable/ic_search"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" /> -->
 
         <ImageButton
             android:id="@+id/search_btn"

@@ -1,5 +1,9 @@
-package com.example.mumulcom
+package com.example.mumulcom.retrofit
 
+import com.example.mumulcom.response.CategoryQuestionResponse
+import com.example.mumulcom.response.DetailCodingQuestionResponse
+import com.example.mumulcom.response.DetailConceptQuestionResponse
+import com.example.mumulcom.response.QuestionResponse
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -21,5 +25,17 @@ interface QuestionRetrofitInterface {
         @Query("lastQuestionIdx") lastQuestionIdx:Int, // (ex. 1)  마지막으로 조회한 질문글 순서 번호
         @Query("perPage") perPage:Int, // 하나의 페이지당 조회할 질문 글 갯수
     ):Call<CategoryQuestionResponse>
+
+    @GET("/questions/coding/{questionIdx}") // 코딩 질문 상세 조회
+    fun getDetailCodingQuestion(
+        @Path("questionIdx") questionIdx : Long
+
+    ):Call<DetailCodingQuestionResponse>
+
+    @GET("/questions/concept/{questionIdx}") // 개념 질문 상세 조회
+    fun getDetailConceptQuestion(
+        @Path("questionIdx") questionIdx : Long
+
+    ):Call<DetailConceptQuestionResponse>
 
 }

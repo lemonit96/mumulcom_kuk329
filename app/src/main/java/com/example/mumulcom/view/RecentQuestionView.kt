@@ -1,4 +1,6 @@
-package com.example.mumulcom
+package com.example.mumulcom.view
+
+import com.example.mumulcom.dataclass.Question
 
 
 // 최근 질문 4개 에 대한 interface (HomeFragment에서 사용)

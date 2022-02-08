@@ -6,11 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.mumulcom.adapter.QuestionAdapter
 import com.example.mumulcom.databinding.ActivityQuestionBoardBinding
+import com.example.mumulcom.dataclass.Question
+import com.example.mumulcom.service.CategoryQuestionService
+import com.example.mumulcom.view.CategoryQuestionView
 
-
-class QuestionBoardActivity : AppCompatActivity(),CategoryQuestionView {
+// 카테고리별 질문 목록
+class QuestionBoardActivity : AppCompatActivity(), CategoryQuestionView {
     private lateinit var binding : ActivityQuestionBoardBinding
     private var codingQuestionCheck : Boolean = true // default 값 (코딩 질문)
     private var conceptQuestionCheck : Boolean = false // default 값 (개념 질문)
@@ -84,6 +87,7 @@ class QuestionBoardActivity : AppCompatActivity(),CategoryQuestionView {
         val intent = Intent(this,QuestionDetailActivity::class.java)
         intent.putExtra("bigCategoryName",question.bigCategoryName) // 상위 카테고리명 넘김
         intent.putExtra("questionIdx",question.questionIdx) // 질문 고유 번호 넘김
+        intent.putExtra("type",type) // 코딩질문 or 개념질문
         startActivity(intent)
 
 
@@ -236,17 +240,12 @@ class QuestionBoardActivity : AppCompatActivity(),CategoryQuestionView {
 
     }
 
-
-
     private fun initCheckCommentButton(){
         if(isReplied){ // 답변 달린 댓글만 보기
             binding.ifAnswerIsCheckIv.setImageResource(R.drawable.ic_check_ok)
-            // todo 답변 달린 댓글만 가져오기
-
 
         }else{
             binding.ifAnswerIsCheckIv.setImageResource(R.drawable.ic_check_no)
-            // todo 답변 달린 댓글만 가져오기
         }
     }
 
