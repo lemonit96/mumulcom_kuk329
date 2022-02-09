@@ -15,7 +15,7 @@ class RepliesForQuestionService {
     private lateinit var repliesForQuestionView: RepliesForQuestionView
 
     // 외부 접근
-    fun getRepliesForQuestionService(repliesForQuestionView: RepliesForQuestionView){
+    fun setRepliesForQuestionService(repliesForQuestionView: RepliesForQuestionView){
         this.repliesForQuestionView = repliesForQuestionView
     }
 
@@ -30,6 +30,7 @@ class RepliesForQuestionService {
                 override fun onResponse(call: Call<RepliesForQuestionResponse>, response: Response<RepliesForQuestionResponse>) {
                     // 호출 성공
                     val resp = response.body()!!
+//                    Log.d("RepliesForQuestionService/API",response.body().toString())
                     when(resp.code){
                         1000->{
                             repliesForQuestionView.onGetRepliesSuccess(resp.result)

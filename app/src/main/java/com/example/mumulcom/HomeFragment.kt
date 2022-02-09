@@ -61,6 +61,7 @@ class HomeFragment : Fragment(), RecentQuestionView {
         val intent = Intent(requireContext(),QuestionDetailActivity::class.java)
         intent.putExtra("bigCategoryName",question.bigCategoryName) // 상위 카테고리명 넘김
         intent.putExtra("questionIdx",question.questionIdx) // 질문 고유 번호 넘김
+        intent.putExtra("type",question.type)
         startActivity(intent)
 
 
@@ -71,7 +72,7 @@ class HomeFragment : Fragment(), RecentQuestionView {
         questionService.setRecentQuestionView(this)
 
         // TODO sharedPreference 에 저장된 userIdx 값으로 바꿔서 넣기
-        questionService.getQuestions(3) // 현재 로그인한 사용자 정보 넣어줌.
+        questionService.getQuestions(getUserIdx(requireContext()), getJwt(requireContext())) // 현재 로그인한 사용자 정보 넣어줌.
     }
 
 

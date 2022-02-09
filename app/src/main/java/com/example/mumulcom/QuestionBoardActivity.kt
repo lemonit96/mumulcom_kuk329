@@ -58,6 +58,8 @@ class QuestionBoardActivity : AppCompatActivity(), CategoryQuestionView {
         binding.refreshLayout.setOnRefreshListener {
             // todo 서버에서 데이터 reload
 
+            getCategoryQuestions()
+            initRecyclerView()
 
             binding.refreshLayout.isRefreshing = false
         }

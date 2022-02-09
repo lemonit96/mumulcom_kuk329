@@ -4,7 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 data class Question(
     @SerializedName("questionIdx") val questionIdx: Long, // 질문 고유 번호
-    @SerializedName("useIdx") val userIdx: Long, // 작성자 고유 번호
+    @SerializedName("userIdx") val userIdx: Long, // 작성자 고유 번호
+    @SerializedName("type") val type: Int, // 질문 유형 (코딩질문 :1 , 개념질문 2)
     @SerializedName("nickname") val nickname: String, // 작성자 이름
     @SerializedName("profileImgUrl") val profileImgUrl: String, // 작성자 이름
     @SerializedName("createdAt") val createdAt: String, // 작성한 날짜

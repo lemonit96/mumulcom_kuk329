@@ -35,9 +35,16 @@ interface QuestionRetrofitInterface {
 
     ):Call<DetailConceptQuestionResponse>
 
-    @GET("/shop/replies/{questionIdx}") // 질문에 대한 답변들 조회 (api 22)
+    @GET("/replies/{questionIdx}") // 질문에 대한 답변들 조회 (api 22)
     fun getRepliesForQuestion(
         @Path("questionIdx") questionIdx : Long
     ):Call<RepliesForQuestionResponse>
+
+    @POST("/likes/questions/creation") // 해당 질문을 좋아요 했을때 호출 (api 27)
+    fun getLikeQuestion(
+        @Header("X-ACCESS-TOKEN") X_ACCESS_TOKEN : String,
+        @Body questionIdx : Long,  // 질문 고유 번호 (좋아요를 누른 질문 번호)
+        @Body userIdx : Long   // 유저 고유 번호 (좋아요를 한 유저 번호)
+    ):Call<LikeQuestionResponse>
 
 }
