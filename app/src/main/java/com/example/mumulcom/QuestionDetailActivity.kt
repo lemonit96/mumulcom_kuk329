@@ -6,25 +6,13 @@ import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.example.mumulcom.adapter.DetailQuestionImgAdapter
-import com.example.mumulcom.adapter.ImageViewPagerAdapter
-import com.example.mumulcom.adapter.QuestionAdapter
-import com.example.mumulcom.adapter.RepliesForQuestionAdapter
 import com.example.mumulcom.databinding.ActivityQuestionDetailBinding
-import com.example.mumulcom.dataclass.DetailCodingQuestion
-import com.example.mumulcom.dataclass.DetailConceptQuestion
-import com.example.mumulcom.dataclass.Question
-import com.example.mumulcom.dataclass.Reply
-import com.example.mumulcom.service.DetailCodingQuestionService
-import com.example.mumulcom.service.DetailConceptQuestionService
-import com.example.mumulcom.service.RepliesForQuestionService
-import com.example.mumulcom.view.DetailCodingQuestionView
-import com.example.mumulcom.view.DetailConceptQuestionView
-import com.example.mumulcom.view.RepliesForQuestionView
 
 
 // 질문 상세 페이지 (개념/코딩)
-class QuestionDetailActivity : AppCompatActivity(), DetailCodingQuestionView ,DetailConceptQuestionView, RepliesForQuestionView{
+class QuestionDetailActivity : AppCompatActivity(), DetailCodingQuestionView,
+    DetailConceptQuestionView,
+    RepliesForQuestionView, LikeQuestionView {
     private lateinit var binding : ActivityQuestionDetailBinding
     private lateinit var bigCategoryName : String
     private var questionIdx : Long = 0 // default 값
@@ -67,6 +55,8 @@ class QuestionDetailActivity : AppCompatActivity(), DetailCodingQuestionView ,De
 
         binding.clickLikeIv.setOnClickListener {  // 해당 질문에 좋아요를 눌렀을때
             // TODO 서버에 좋아요한 정보 넘김
+            binding.clickLikeIv.setImageResource(R.drawable.ic_liked)
+         //   setLikeForQuestion()
 
 
        }
@@ -75,6 +65,11 @@ class QuestionDetailActivity : AppCompatActivity(), DetailCodingQuestionView ,De
 
 
 
+    private fun setLikeForQuestion(){
+        val likeQuestionService = LikeQuestionService()
+        likeQuestionService.setLikeQuestionService(this)
+        likeQuestionService.getLikeQuestion(getJwt(this),questionIdx, getUserIdx(this))
+    }
 
     private fun initRecyclerView(){
         // recyclerView <-> adapter 연결
@@ -89,20 +84,20 @@ class QuestionDetailActivity : AppCompatActivity(), DetailCodingQuestionView ,De
     private fun getRepliesForQuestion(){// 질문에 대한 답변 받아오는 함수
         val repliesForQuestionService = RepliesForQuestionService()
         repliesForQuestionService.setRepliesForQuestionService(this)
-        repliesForQuestionService.getRepliesForQuestion(questionIdx)
+        repliesForQuestionService.getRepliesForQuestion(questionIdx, getUserIdx(this))
     }
 
     private fun getDetailConceptQuestion(){ // 개념질문 가져옴
         val detailConceptQuestionService = DetailConceptQuestionService()
         detailConceptQuestionService.setDetailConceptQuestionService(this)
-        detailConceptQuestionService.getDetailConceptQuestion(questionIdx)
+        detailConceptQuestionService.getDetailConceptQuestion(questionIdx, getUserIdx(this))
 
     }
 
     private fun getDetailCodingQuestion(){ // 코딩질문 가져옴
         val detailCodingQuestionService = DetailCodingQuestionService()
         detailCodingQuestionService.setDetailCodingQuestionService(this)
-        detailCodingQuestionService.getDetailConceptQuestion(questionIdx)
+        detailCodingQuestionService.getDetailConceptQuestion(questionIdx, getUserIdx(this))
 
     }
 
@@ -116,8 +111,7 @@ class QuestionDetailActivity : AppCompatActivity(), DetailCodingQuestionView ,De
     }
 
     override fun onGetDetailConceptQuestionsSuccess(result: ArrayList<DetailConceptQuestion>) {
-//        Log.d("size 확인111",result.size.toString())
-//        Log.d("size 확인111",result[0].nickname)
+
         binding.nickNameTv.text = result[0].nickname // 닉네임
         binding.createdAtTv.text = result[0].createdAt // 작성날짜
         binding.questionIv.setImageResource(R.drawable.ic_concept_question_check_img) // 코딩 이미지로바꿈
@@ -168,8 +162,7 @@ class QuestionDetailActivity : AppCompatActivity(), DetailCodingQuestionView ,De
     }
 
     override fun onGetDetailCodingQuestionsSuccess(result: ArrayList<DetailCodingQuestion>) {
-//        Log.d("size 확인222",result.size.toString())
-//        Log.d("size 확인222",result[0].nickname)
+
         binding.nickNameTv.text = result[0].nickname // 닉네임
         binding.createdAtTv.text = result[0].createdAt // 작성날짜
         Glide.with(this).load(result[0].profileImgUrl).into(binding.profileIv) // 프로필 이미지
@@ -237,6 +230,28 @@ class QuestionDetailActivity : AppCompatActivity(), DetailCodingQuestionView ,De
     override fun onGetRepliesFailure(code: Int, message: String) {
         when(code){
             400-> Log.d("질문에 대한 답변/API",message)
+        }
+    }
+
+
+
+
+
+
+    // ----------- LikeQuestionView implement : 질문에 좋아요 처리 -----------------
+    override fun onGetLikeQuestionLoading() {
+        Log.d("질문에 대한 좋아요/API","로딩중...")
+    }
+
+    override fun onGetLikeQuestionSuccess(result: Like) {
+
+        Log.d("푸쉬알림을 받을 유저 인덱스 ",result.noticeTargetUserIdx.toString())
+        Log.d("푸쉬알림 내용 ",result.noticeTargetUserIdx.toString())
+    }
+
+    override fun onGetLikeQuestionFailure(code: Int, message: String) {
+        when(code){
+            400-> Log.d("질문에 대한 좋아요/API",message)
         }
     }
 
