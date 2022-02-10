@@ -12,7 +12,7 @@ import com.example.mumulcom.databinding.ActivityQuestionDetailBinding
 // 질문 상세 페이지 (개념/코딩)
 class QuestionDetailActivity : AppCompatActivity(), DetailCodingQuestionView,
     DetailConceptQuestionView,
-    RepliesForQuestionView {
+    RepliesForQuestionView, LikeQuestionView {
     private lateinit var binding : ActivityQuestionDetailBinding
     private lateinit var bigCategoryName : String
     private var questionIdx : Long = 0 // default 값
@@ -55,6 +55,8 @@ class QuestionDetailActivity : AppCompatActivity(), DetailCodingQuestionView,
 
         binding.clickLikeIv.setOnClickListener {  // 해당 질문에 좋아요를 눌렀을때
             // TODO 서버에 좋아요한 정보 넘김
+            binding.clickLikeIv.setImageResource(R.drawable.ic_liked)
+         //   setLikeForQuestion()
 
 
        }
@@ -63,6 +65,11 @@ class QuestionDetailActivity : AppCompatActivity(), DetailCodingQuestionView,
 
 
 
+    private fun setLikeForQuestion(){
+        val likeQuestionService = LikeQuestionService()
+        likeQuestionService.setLikeQuestionService(this)
+        likeQuestionService.getLikeQuestion(getJwt(this),questionIdx, getUserIdx(this))
+    }
 
     private fun initRecyclerView(){
         // recyclerView <-> adapter 연결
@@ -104,8 +111,7 @@ class QuestionDetailActivity : AppCompatActivity(), DetailCodingQuestionView,
     }
 
     override fun onGetDetailConceptQuestionsSuccess(result: ArrayList<DetailConceptQuestion>) {
-//        Log.d("size 확인111",result.size.toString())
-//        Log.d("size 확인111",result[0].nickname)
+
         binding.nickNameTv.text = result[0].nickname // 닉네임
         binding.createdAtTv.text = result[0].createdAt // 작성날짜
         binding.questionIv.setImageResource(R.drawable.ic_concept_question_check_img) // 코딩 이미지로바꿈
@@ -156,8 +162,7 @@ class QuestionDetailActivity : AppCompatActivity(), DetailCodingQuestionView,
     }
 
     override fun onGetDetailCodingQuestionsSuccess(result: ArrayList<DetailCodingQuestion>) {
-//        Log.d("size 확인222",result.size.toString())
-//        Log.d("size 확인222",result[0].nickname)
+
         binding.nickNameTv.text = result[0].nickname // 닉네임
         binding.createdAtTv.text = result[0].createdAt // 작성날짜
         Glide.with(this).load(result[0].profileImgUrl).into(binding.profileIv) // 프로필 이미지
@@ -225,6 +230,28 @@ class QuestionDetailActivity : AppCompatActivity(), DetailCodingQuestionView,
     override fun onGetRepliesFailure(code: Int, message: String) {
         when(code){
             400-> Log.d("질문에 대한 답변/API",message)
+        }
+    }
+
+
+
+
+
+
+    // ----------- LikeQuestionView implement : 질문에 좋아요 처리 -----------------
+    override fun onGetLikeQuestionLoading() {
+        Log.d("질문에 대한 좋아요/API","로딩중...")
+    }
+
+    override fun onGetLikeQuestionSuccess(result: Like) {
+
+        Log.d("푸쉬알림을 받을 유저 인덱스 ",result.noticeTargetUserIdx.toString())
+        Log.d("푸쉬알림 내용 ",result.noticeTargetUserIdx.toString())
+    }
+
+    override fun onGetLikeQuestionFailure(code: Int, message: String) {
+        when(code){
+            400-> Log.d("질문에 대한 좋아요/API",message)
         }
     }
 

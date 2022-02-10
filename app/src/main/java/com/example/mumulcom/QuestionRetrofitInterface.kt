@@ -49,4 +49,6 @@ interface QuestionRetrofitInterface {
         @Body userIdx : Long   // 유저 고유 번호 (좋아요를 한 유저 번호)
     ):Call<LikeQuestionResponse>
 
+
+
 }
