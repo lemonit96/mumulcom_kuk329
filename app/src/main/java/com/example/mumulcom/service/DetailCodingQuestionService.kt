@@ -20,16 +20,17 @@ class DetailCodingQuestionService {
     }
 
     // 서버에서 해당 (개념) 질문에 대한 상세 내용 받아오는 함수
-    fun getDetailConceptQuestion(questionIdx:Long){
+    fun getDetailConceptQuestion(questionIdx:Long,userIdx:Long){
         val detailConceptQuestionService = getRetrofit().create(QuestionRetrofitInterface::class.java)
 
         detailCodingQuestionView.onGetDetailCodingQuestionsLoading() // 호출전
 
-        detailConceptQuestionService.getDetailCodingQuestion(questionIdx)
+        detailConceptQuestionService.getDetailCodingQuestion(questionIdx,userIdx)
             .enqueue(object : retrofit2.Callback<DetailCodingQuestionResponse>{
                 override fun onResponse(call: Call<DetailCodingQuestionResponse>, response: Response<DetailCodingQuestionResponse>) {
                     // 호출 성공
                     val resp = response.body()!!
+//                    Log.d("test",resp.toString())
                     when(resp.code){
                         1000->{
                             detailCodingQuestionView.onGetDetailCodingQuestionsSuccess(resp.result)

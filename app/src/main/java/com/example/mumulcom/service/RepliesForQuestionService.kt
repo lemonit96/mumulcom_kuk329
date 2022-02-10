@@ -20,12 +20,12 @@ class RepliesForQuestionService {
     }
 
     // 서버 연동 함수
-    fun getRepliesForQuestion(questionIdx:Long){
+    fun getRepliesForQuestion(questionIdx:Long,userIdx:Long){
         val repliesForQuestionService = getRetrofit().create(QuestionRetrofitInterface::class.java)
 
         repliesForQuestionView.onGetRepliesLoading() // api 호출전 로딩 처리
 
-        repliesForQuestionService.getRepliesForQuestion(questionIdx)
+        repliesForQuestionService.getRepliesForQuestion(questionIdx,userIdx)
             .enqueue(object : retrofit2.Callback<RepliesForQuestionResponse>{
                 override fun onResponse(call: Call<RepliesForQuestionResponse>, response: Response<RepliesForQuestionResponse>) {
                     // 호출 성공

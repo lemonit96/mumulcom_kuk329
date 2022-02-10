@@ -19,6 +19,7 @@ data class DetailCodingQuestion( // 13개
     @SerializedName("smallCategoryName") var smallCategoryName: String?, // 하위 카테고리, null 가능
     @SerializedName("likeCount") var likeCount: Int,    // 질문 좋아요 개수
     @SerializedName("replyCount") var replyCount: Int,  // 질문 답변 개수
+    @SerializedName("isLiked") var isLiked: String,  // 좋아요 여부
 
 
 )

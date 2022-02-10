@@ -89,20 +89,20 @@ class QuestionDetailActivity : AppCompatActivity(), DetailCodingQuestionView ,De
     private fun getRepliesForQuestion(){// 질문에 대한 답변 받아오는 함수
         val repliesForQuestionService = RepliesForQuestionService()
         repliesForQuestionService.setRepliesForQuestionService(this)
-        repliesForQuestionService.getRepliesForQuestion(questionIdx)
+        repliesForQuestionService.getRepliesForQuestion(questionIdx, getUserIdx(this))
     }
 
     private fun getDetailConceptQuestion(){ // 개념질문 가져옴
         val detailConceptQuestionService = DetailConceptQuestionService()
         detailConceptQuestionService.setDetailConceptQuestionService(this)
-        detailConceptQuestionService.getDetailConceptQuestion(questionIdx)
+        detailConceptQuestionService.getDetailConceptQuestion(questionIdx, getUserIdx(this))
 
     }
 
     private fun getDetailCodingQuestion(){ // 코딩질문 가져옴
         val detailCodingQuestionService = DetailCodingQuestionService()
         detailCodingQuestionService.setDetailCodingQuestionService(this)
-        detailCodingQuestionService.getDetailConceptQuestion(questionIdx)
+        detailCodingQuestionService.getDetailConceptQuestion(questionIdx, getUserIdx(this))
 
     }
 
