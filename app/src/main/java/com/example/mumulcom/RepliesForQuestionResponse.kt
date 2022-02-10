@@ -1,6 +1,5 @@
 package com.example.mumulcom
 
-import com.example.mumulcom.Reply
 import com.google.gson.annotations.SerializedName
 
 data class RepliesForQuestionResponse(

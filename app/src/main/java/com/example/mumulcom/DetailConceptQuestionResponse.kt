@@ -1,6 +1,6 @@
 package com.example.mumulcom
 
-import com.example.mumulcom.DetailConceptQuestion
+
 import com.google.gson.annotations.SerializedName
 
 class DetailConceptQuestionResponse (

@@ -1,6 +1,5 @@
 package com.example.mumulcom
 
-import com.example.mumulcom.*
 import retrofit2.Call
 import retrofit2.http.*
 
