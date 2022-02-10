@@ -6,25 +6,13 @@ import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.example.mumulcom.adapter.DetailQuestionImgAdapter
-import com.example.mumulcom.adapter.ImageViewPagerAdapter
-import com.example.mumulcom.adapter.QuestionAdapter
-import com.example.mumulcom.adapter.RepliesForQuestionAdapter
 import com.example.mumulcom.databinding.ActivityQuestionDetailBinding
-import com.example.mumulcom.dataclass.DetailCodingQuestion
-import com.example.mumulcom.dataclass.DetailConceptQuestion
-import com.example.mumulcom.dataclass.Question
-import com.example.mumulcom.dataclass.Reply
-import com.example.mumulcom.service.DetailCodingQuestionService
-import com.example.mumulcom.service.DetailConceptQuestionService
-import com.example.mumulcom.service.RepliesForQuestionService
-import com.example.mumulcom.view.DetailCodingQuestionView
-import com.example.mumulcom.view.DetailConceptQuestionView
-import com.example.mumulcom.view.RepliesForQuestionView
 
 
 // 질문 상세 페이지 (개념/코딩)
-class QuestionDetailActivity : AppCompatActivity(), DetailCodingQuestionView ,DetailConceptQuestionView, RepliesForQuestionView{
+class QuestionDetailActivity : AppCompatActivity(), DetailCodingQuestionView,
+    DetailConceptQuestionView,
+    RepliesForQuestionView {
     private lateinit var binding : ActivityQuestionDetailBinding
     private lateinit var bigCategoryName : String
     private var questionIdx : Long = 0 // default 값

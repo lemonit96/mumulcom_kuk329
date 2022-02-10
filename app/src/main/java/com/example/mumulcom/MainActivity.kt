@@ -6,7 +6,6 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mumulcom.databinding.ActivityMainBinding
-import com.example.mumulcom.view.LoginView
 import com.kakao.sdk.user.UserApiClient
 
 class MainActivity : AppCompatActivity(), LoginView {

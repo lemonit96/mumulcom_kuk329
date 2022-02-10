@@ -2,7 +2,6 @@ package com.example.mumulcom
 
 import android.annotation.SuppressLint
 import android.util.Log
-import com.example.mumulcom.view.LoginView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
